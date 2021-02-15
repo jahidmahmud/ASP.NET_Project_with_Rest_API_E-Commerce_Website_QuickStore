@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>QuickSTore</title>
+    <meta name="author" content="themesflat.com">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" >
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/responsive.css">
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/colors/color1.css" id="colors">
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/animate.css">
+
+    <link href="icon/favicon.png" rel="shortcut icon">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/payment.js"></script>
+    <link href="icon/favicon.png" rel="shortcut icon">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+ <script type = "text/javascript">
+     var allcookies = document.cookie;
+     var username = Cookies.get('username');
+     var userid = Cookies.get('userid');
+  </script>
+
+</head>
+<body class="header_sticky header-style-1 has-menu-extra">
+	<div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Boxed -->
+    <div class="boxed">
+        <div id="site-header-wrap">
+            <!-- Header -->
+            <header id="header" class="header header-container clearfix">
+                <div class="container clearfix" id="site-header-inner">
+                    <div id="logo" class="logo float-left">
+                        <a href="index.html" title="logo">
+                            <img src="images/logo.png" alt="image" width="107" height="24" data-retina="images/logo.png" data-width="107" data-height="24">
+                        </a>
+                    </div><!-- /.logo -->
+                    <div class="mobile-button"><span></span></div>
+                    <ul class="menu-extra">
+                        <li class="box-search">
+                            <a class="icon_search header-search-icon" href="#"></a>
+                            <form role="search" method="get" class="header-search-form" action="#">
+                                <input type="text" value="" name="s" class="header-search-field" placeholder="Search...">
+                                <button type="submit" class="header-search-submit" title="Search">Search</button>
+                            </form>
+                        </li>
+                        <li class="box-login">
+                            <a class="icon_login" href="#"></a>
+                        </li>
+                        <li class="box-cart nav-top-cart-wrapper">
+                            <a class="icon_cart nav-cart-trigger active" href="#"><span>3</span></a>
+                            <div class="nav-shop-cart">
+                                <div class="widget_shopping_cart_content">
+                                    <div class="woocommerce-min-cart-wrap" id="cartss">
+                                        <ul class="woocommerce-mini-cart cart_list product_list_widget " id="cartul">
+                                            <li class="woocommerce-mini-cart-item mini_cart_item">
+                                                <span>No Items in Shopping Cart</span>
+                                            </li>
+                                        </ul>
+                                    </div><!-- /.widget_shopping_cart_content -->
+                                    <button id="checkOut">CheckOut</button>
+                                </div>
+                            </div><!-- /.nav-shop-cart -->
+                        </li>
+                    </ul><!-- /.menu-extra -->
+                    <div class="nav-wrap">
+                        <nav id="mainnav" class="mainnav">
+                            <ul class="menu">
+                                <li class="active">
+                                    <a href="index.html">HOME</a>
+                                </li>
+                                <li>
+                                    <a href="shop-3col.html">SHOP</a>
+                                </li>
+                                <li >
+                                    <a href="blog-list.html">BLOG</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">CONTACT</a>
+                                </li>
+                            </ul>
+                        </nav><!-- /.mainnav -->
+                    </div><!-- /.nav-wrap -->
+                </div><!-- /.container-fluid -->
+            </header><!-- /header -->
+        </div>
+
+
+        <!-- /#site-header-wrap -->
+
+        <div>
+            <div class="p-5">
+    <div class="justify-content-center">
+        <h2 class="text-primary text-center">Payment</h2><br />
+            <div class="col-md-6 mx-auto">
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control" required name="address" placeholder="Enter your address" id="address">
+                    <span id="addressErr"></span>
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" class="form-control" required name="city" placeholder="Enter your City" id="city">
+                    <span id="cityErr"></span>
+                </div>
+                <div class="form-group">
+                    <label>State</label>
+                    <input type="text" class="form-control" required name="state" placeholder="Enter your state" id="state">
+                    <span id="stateErr"></span>
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" class="form-control" required name="country" placeholder="Enter your country" id="country">
+                    <span id="countryErr"></span>
+                </div>
+                <div class="form-group">
+                    <label>Zip</label>
+                    <input type="text" class="form-control" required name="zip" placeholder="Zip code" id="zip">
+                    <span id="zipErr"></span>
+                </div>
+                <div class="form-group">
+                    <label>Card No</label>
+                    <input type="text" name="cardno" class="form-control" required placeholder="Enter card no" id="cardno" />
+                    <span id="cardnoErr"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Card Name</label>
+                    <input type="text" class="form-control" required name="chname" placeholder="Enter your card Card Name" id="cardname">
+                    <span id="cardnameErr"></span>
+                </div>
+                <div class="form-group">
+                    <label>Card Provider</label>
+                    <select name="cardProvider" class="form-control" required id="exampleFormControlSelect1" class="ptype">
+                        <option value="DBBL">DBBL</option>
+                        <option value="Brac Bank">Brac Bank</option>
+                        <option value="Maestro">Maestro </option>
+                        <option value="Contactless">Contactless </option>
+                        <option value="paypal">paypal</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Exp Date</label>
+                    <input type="date" class="form-control btn-block" required name="expdate" id="date">
+                    <span id="dateErr"></span>
+                </div>
+
+                <BUTTON type="submit" class="btn btn-success p-2" value="Place Order" id="order" />Place Order</BUTTON> 
+            </div>
+    </div>
+</div>
+        
+        </div>
+
+	<!-- Javascript -->
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/tether.min.js"></script>
+    <script src="javascript/bootstrap.min.js"></script> 
+    <script src="javascript/jquery.easing.js"></script>    
+    <script src="javascript/parallax.js"></script>
+    <script src="javascript/jquery-waypoints.js"></script>
+    <script src="javascript/jquery-countTo.js"></script>
+    <script src="javascript/jquery.countdown.js"></script>
+    <script src="javascript/jquery.flexslider-min.js"></script>
+    <script src="javascript/images-loaded.js"></script>
+    <script src="javascript/jquery.isotope.min.js"></script>
+    <script src="javascript/magnific.popup.min.js"></script>
+    <script src="javascript/jquery.hoverdir.js"></script>
+    <script src="javascript/owl.carousel.min.js"></script>
+    <script src="javascript/equalize.min.js"></script>
+    <script src="javascript/gmap3.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIEU6OT3xqCksCetQeNLIPps6-AYrhq-s&region=GB"></script>
+    <script src="javascript/jquery-ui.js"></script>
+    
+    <script src="javascript/jquery.cookie.js"></script>
+    <script src="javascript/main.js"></script>
+
+    <!-- Revolution Slider -->
+    <script src="rev-slider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="rev-slider/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="javascript/rev-slider.js"></script>
+    <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->  
+    <script src="rev-slider/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="rev-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="rev-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="rev-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="rev-slider/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="rev-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="js/product.js"></script>
+</body>
+</html>

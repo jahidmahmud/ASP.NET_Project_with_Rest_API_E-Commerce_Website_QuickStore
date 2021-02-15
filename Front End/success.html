@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Success View</title>
+    <link href="icon/favicon.png" rel="shortcut icon">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+ <script type = "text/javascript">
+     var allcookies = document.cookie;
+     var username = Cookies.get('username');
+     var userid = Cookies.get('userid');
+  </script>
+
+</head>
+<body>
+    <div>
+        <!------ Include the above in your HEAD tag ---------->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <br />
+                    <br />
+                    <div class="error-template">
+                        <h1 class="label label-success" style="font-size: 35px;">
+                            Payment has been successfully done!
+                        </h1>
+
+                        <br />
+                        <br />
+                        <br />
+                        <div class="error-actions">
+                            <a href="index.html">
+                                <span class="glyphicon glyphicon-home"></span>
+                                Take Me Home
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
