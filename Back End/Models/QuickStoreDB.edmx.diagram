@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="102b0b1994fe497782ddee54d59af964" Name="Diagram1">
+        <EntityTypeShape EntityType="QuickStoreDBModel.Blogging" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.CartStatus" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.Category" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.Contact" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.MemberRole" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.Newsletter" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.Product" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.ShippingDetails" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.SlideImage" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.SlideImage2" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.Sorting" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.UserRole" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.Users" Width="1.5" PointX="5.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.Wishlist" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="QuickStoreDBModel.FK_Product_Blogging" ManuallyRouted="false" />
+        <AssociationConnector Association="QuickStoreDBModel.FK__Product__Categor__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="QuickStoreDBModel.FK_Product_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="QuickStoreDBModel.FK_Product_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuickStoreDBModel.FK_Product_Sorting" ManuallyRouted="false" />
+        <AssociationConnector Association="QuickStoreDBModel.FK__ShippingDet__Uid__398D8EEE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.Cart" Width="1.5" PointX="5.25" PointY="2.625" />
+        <AssociationConnector Association="QuickStoreDBModel.FK__Cart__ProductId__37A5467C" />
+        <EntityTypeShape EntityType="QuickStoreDBModel.WebsiteHits" Width="1.5" PointX="10.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

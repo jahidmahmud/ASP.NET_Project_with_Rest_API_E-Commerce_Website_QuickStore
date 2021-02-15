@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuickStoreDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Blogging">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortHeading" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="BlogHeading" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ShortDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="LongDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Author" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="BlogImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PostedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Product_Blogging" FromRole="Blogging" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="MemberId" Type="Int32" />
+    <Property Name="CartStatusId" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Cart__ProductId__37A5467C" FromRole="Cart" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="CartStatus">
+    <Key>
+      <PropertyRef Name="CartStatusId" />
+    </Key>
+    <Property Name="CartStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CartStatus1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Cid" />
+    </Key>
+    <Property Name="Cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cemail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Csubject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cmessage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MemberRole">
+    <Key>
+      <PropertyRef Name="MemberRoleID" />
+    </Key>
+    <Property Name="MemberRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="memberId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Newsletter">
+    <Key>
+      <PropertyRef Name="NId" />
+    </Key>
+    <Property Name="NId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsFeatured" Type="Boolean" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SId" Type="Int32" />
+    <Property Name="BlogId" Type="Int32" />
+    <Property Name="LongDescrib" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Blogging" Relationship="Self.FK_Product_Blogging" FromRole="Product" ToRole="Blogging" />
+    <NavigationProperty Name="Cart" Relationship="Self.FK__Cart__ProductId__37A5467C" FromRole="Product" ToRole="Cart" />
+    <NavigationProperty Name="Sorting" Relationship="Self.FK__Product__Categor__38996AB5" FromRole="Product" ToRole="Sorting" />
+    <NavigationProperty Name="Product1" Relationship="Self.FK_Product_Product" FromRole="Product" ToRole="Product1" />
+    <NavigationProperty Name="Product2" Relationship="Self.FK_Product_Product" FromRole="Product1" ToRole="Product" />
+    <NavigationProperty Name="Product11" Relationship="Self.FK_Product_Product1" FromRole="Product" ToRole="Product1" />
+    <NavigationProperty Name="Product3" Relationship="Self.FK_Product_Product1" FromRole="Product1" ToRole="Product" />
+    <NavigationProperty Name="Sorting1" Relationship="Self.FK_Product_Sorting" FromRole="Product" ToRole="Sorting" />
+  </EntityType>
+  <EntityType Name="ShippingDetails">
+    <Key>
+      <PropertyRef Name="ShippingDetailId" />
+    </Key>
+    <Property Name="ShippingDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="Int32" />
+    <Property Name="Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreditCardNumber" Type="Int32" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__ShippingDet__Uid__398D8EEE" FromRole="ShippingDetails" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="SlideImage">
+    <Key>
+      <PropertyRef Name="SlideId" />
+    </Key>
+    <Property Name="SlideId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SlideTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SlideImage1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SlideCollection" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SlideImage2">
+    <Key>
+      <PropertyRef Name="SlideId" />
+    </Key>
+    <Property Name="SlideId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SideTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SlideImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SlideCollection" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Sorting">
+    <Key>
+      <PropertyRef Name="SId" />
+    </Key>
+    <Property Name="SId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Product__Categor__38996AB5" FromRole="Sorting" ToRole="Product" />
+    <NavigationProperty Name="Product1" Relationship="Self.FK_Product_Sorting" FromRole="Sorting" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="urole" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="uid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Uid" />
+    </Key>
+    <Property Name="Uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UPassword" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="UserRole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ResetPasswordCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ShippingDetails" Relationship="Self.FK__ShippingDet__Uid__398D8EEE" FromRole="Users" ToRole="ShippingDetails" />
+  </EntityType>
+  <EntityType Name="Wishlist">
+    <Key>
+      <PropertyRef Name="wid" />
+    </Key>
+    <Property Name="wid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <Property Name="pid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Product_Blogging">
+    <End Role="Blogging" Type="Self.Blogging" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blogging">
+        <PropertyRef Name="BlogId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="BlogId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cart__ProductId__37A5467C">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Categor__38996AB5">
+    <End Role="Sorting" Type="Self.Sorting" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sorting">
+        <PropertyRef Name="SId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Product1" Type="Self.Product" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Product1">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Product1">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Product1" Type="Self.Product" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Product1">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Sorting">
+    <End Role="Sorting" Type="Self.Sorting" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sorting">
+        <PropertyRef Name="SId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ShippingDet__Uid__398D8EEE">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="ShippingDetails" Type="Self.ShippingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Uid" />
+      </Principal>
+      <Dependent Role="ShippingDetails">
+        <PropertyRef Name="Uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuickStoreDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Blogging" EntityType="Self.Blogging" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" />
+    <EntitySet Name="CartStatus" EntityType="Self.CartStatus" />
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" />
+    <EntitySet Name="MemberRole" EntityType="Self.MemberRole" />
+    <EntitySet Name="Newsletter" EntityType="Self.Newsletter" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="ShippingDetails" EntityType="Self.ShippingDetails" />
+    <EntitySet Name="SlideImage" EntityType="Self.SlideImage" />
+    <EntitySet Name="SlideImage2" EntityType="Self.SlideImage2" />
+    <EntitySet Name="Sorting" EntityType="Self.Sorting" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Wishlist" EntityType="Self.Wishlist" />
+    <AssociationSet Name="FK_Product_Blogging" Association="Self.FK_Product_Blogging">
+      <End Role="Blogging" EntitySet="Blogging" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cart__ProductId__37A5467C" Association="Self.FK__Cart__ProductId__37A5467C">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Categor__38996AB5" Association="Self.FK__Product__Categor__38996AB5">
+      <End Role="Sorting" EntitySet="Sorting" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Product" Association="Self.FK_Product_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product1" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Product1" Association="Self.FK_Product_Product1">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product1" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Sorting" Association="Self.FK_Product_Sorting">
+      <End Role="Sorting" EntitySet="Sorting" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ShippingDet__Uid__398D8EEE" Association="Self.FK__ShippingDet__Uid__398D8EEE">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ShippingDetails" EntitySet="ShippingDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
